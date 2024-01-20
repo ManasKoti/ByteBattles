@@ -1,14 +1,11 @@
 from entities import *
 from battle import battle
+from shop import Shop
 import random
 
 #List of random encounters
 #1.Nothing 2.Wolf 3.Bandit 4.Troll 5.Loot
 random_wild_encounter = [1,1,1,2,2,2,3,3,4,5]
-
-#Inventory
-money = 0
-Inventory = []
 
 #Game loop
 game_on = True
@@ -51,16 +48,16 @@ while game_on:
                 if loot_found == 0:
                     money_found = random.choice([10,20,30,40,50])
                     print(f"You found {money_found} gold!")
-                    money += money_found
+                    player.money += money_found
                 #Item found
                 elif loot_found == 1:
                     item_found = random.choice(["Leather Tunic", "Iron Shard", "Crystal Shard"])
                     print(f"You found a {item_found}!")
-                    Inventory.append(item_found)
+                    player.inventory.append(item_found)
                 #Boss item found
                 elif loot_found == 2:
                     print("You foung a Dragon Scale!")
-                    Inventory.append("Dragon Scale")
+                    player.inventory.append("Dragon Scale")
             #Check if player is dead
             if result == "dead":
                 player_alive = False
@@ -68,3 +65,26 @@ while game_on:
                 if replay == "n":
                     game_on = False
                     break
+        
+        #Shop
+        elif turn_action == "2":
+            print("Welcome to the shop!")
+            
+            in_shop = True
+            while in_shop:
+                shop = Shop([("Leather Tunic", 20), ("Iron Shard", 50), ("Crystal Shard", 200)])
+                shop_action = input("What would you like to do?\n1. Buy item\n2. See inventory\n3. Exit\nYour choice: ")
+                print("\n")
+                if shop_action == "1":
+                    shop.display_items(player)
+                    item_number = int(input("Which item would you like to buy? "))
+                    shop.buy_item(item_number, player)
+                elif shop_action == "2":
+                    print("Your inventory:")
+                    for i, item in enumerate(player.inventory, start=1):
+                        print(f"{i}. {item}")
+                    print("\n")
+                elif shop_action == "3":
+                    in_shop = False
+                    
+        #Inn
