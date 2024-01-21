@@ -52,7 +52,7 @@ class Forge:
                 self.player.inventory.remove("Leather Tunic")
                 self.player.inventory.remove("Leather Tunic")
                 self.shard_no = 0
-                player.armour_multiplier = 2
+                player.armour_multiplier = 0.5
             else:
                 print("You don't have enough Leather Tunics!\n")
         elif armour_choice == "2":
@@ -68,6 +68,6 @@ class Forge:
                 self.player.inventory.remove("Iron Shard")
                 self.player.inventory.remove("Iron Shard")
                 self.shard_no = 0
-                player.armour_multiplier = 5
+                player.armour_multiplier = 0.1
             else:
                 print("You don't have enough Iron Shards!\n")

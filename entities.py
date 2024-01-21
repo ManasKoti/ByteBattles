@@ -63,7 +63,7 @@ class Wolf:
 
     def attack(self, player):
         if random.choice(HIT_CHANCE) == 1:
-            player.health -= self.strength * random.uniform(0.05, 0.1) * 0.5 * player.armour_multiplier
+            player.health -= self.strength * random.uniform(0.05, 0.1) * player.armour_multiplier
             print("The enemy hit you!")
         else:
             print("The enemy missed!")
@@ -77,7 +77,7 @@ class Bandit:
         
     def attack(self, player):
         if random.choice(HIT_CHANCE) == 1:
-            player.health -= self.strength * random.uniform(0.05, 0.1) * 0.5 * player.armour_multiplier
+            player.health -= self.strength * random.uniform(0.05, 0.1) * player.armour_multiplier
             print("The enemy hit you!")
         else:
             print("The enemy missed!")
@@ -91,7 +91,7 @@ class Troll:
         
     def attack(self, player):
         if random.choice(HIT_CHANCE) == 1:
-            player.health -= self.strength * random.uniform(0.05, 0.1) * 0.5 * player.armour_multiplier
+            player.health -= self.strength * random.uniform(0.05, 0.1) * player.armour_multiplier
             print("The enemy hit you!")
         else:
             print("The enemy missed!")
