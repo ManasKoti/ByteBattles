@@ -12,7 +12,7 @@ shard_no = 0
 #Game loop
 game_on = True
 while game_on:
-    
+     
     player_name = input("Welcome to Byte Battles!!\nWhat is your name adventurer your name?\n")
     print("Welcome " + player_name + "!\n")
     player = Player(player_name)
