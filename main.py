@@ -1,11 +1,13 @@
 from entities import *
 from battle import battle
 from shop import Shop
+from forge import Forge
 import random
 
 #List of random encounters
 #1.Nothing 2.Wolf 3.Bandit 4.Troll 5.Loot
 random_wild_encounter = [1,1,1,2,2,2,3,3,4,5]
+shard_no = 0
 
 #Game loop
 game_on = True
@@ -18,7 +20,7 @@ while game_on:
     player_alive = True
     while player_alive:
     
-        turn_action = input("What would you like to do?\n1. Explore\n2. Visit Shop\n3. Visit Inn\n4. Save Game\n5. Load Game\nYour choice: ")
+        turn_action = input("What would you like to do?\n1. Explore\n2. Visit Shop\n3. Visit Inn\n4. Visit Forge\n5. Save Game\n6. Load Game\nYour choice: ")
         print()
                 
         #Explore
@@ -96,16 +98,33 @@ while game_on:
                 player.rest()
                 print("Thank you for visiting, you are fully rested!")
                 print(f"Your health is now {player.health}\n")
+                player.money -= 10
             elif inn_action == "2":
                 pass
             
+        #Forge
+        elif turn_action == "4":
+            forge = Forge(player)
+            print("Welcome to the forge!")
+            forge_action = input("What would you like to do?\n1. Craft weapon\n2. Craft Armour\n3. Exit\nYour choice: ")
+            print("\n")
+            if forge_action == "1":
+                forge.craft_weapon(player)
+            elif forge_action == "2":
+                forge.craft_armour()
+            elif forge_action == "3":
+                pass
+        
         # Save game
-        if turn_action == "4":
+        elif turn_action == "5":
             player.save_to_json()
             print("Game saved.\n")
             continue
+       
         # Load game
-        elif turn_action == "5":
+        elif turn_action == "6":
             player.load_from_json()
             print("Game loaded.\n")
             continue
+        
+        

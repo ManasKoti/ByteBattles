@@ -14,6 +14,7 @@ class Player:
         self.strength = 100
         self.health = 100
         self.weapon_multiplier = 1
+        self.armour_multiplier = 1
         
     def attack(self, enemy):
         if random.choice(HIT_CHANCE) == 1:
@@ -32,7 +33,8 @@ class Player:
             "inventory": self.inventory,
             "strength": self.strength,
             "health": self.health,
-            "weapon_multiplier": self.weapon_multiplier
+            "weapon_multiplier": self.weapon_multiplier,
+            "armour_multiplier": self.armour_multiplier
         }
 
         with open(file_path, "w") as file:
@@ -48,6 +50,7 @@ class Player:
                 self.strength = data["strength"]
                 self.health = data["health"]
                 self.weapon_multiplier = data["weapon_multiplier"]
+                self.armour_multiplier = data["armour_multiplier"]
         except FileNotFoundError:
             print("No saved data found.")
         
@@ -60,7 +63,7 @@ class Wolf:
 
     def attack(self, player):
         if random.choice(HIT_CHANCE) == 1:
-            player.health -= self.strength * random.uniform(0.05, 0.1)
+            player.health -= self.strength * random.uniform(0.05, 0.1) * 0.5 * player.armour_multiplier
             print("The enemy hit you!")
         else:
             print("The enemy missed!")
@@ -74,7 +77,7 @@ class Bandit:
         
     def attack(self, player):
         if random.choice(HIT_CHANCE) == 1:
-            player.health -= self.strength * random.uniform(0.05, 0.1)
+            player.health -= self.strength * random.uniform(0.05, 0.1) * 0.5 * player.armour_multiplier
             print("The enemy hit you!")
         else:
             print("The enemy missed!")
@@ -88,7 +91,7 @@ class Troll:
         
     def attack(self, player):
         if random.choice(HIT_CHANCE) == 1:
-            player.health -= self.strength * random.uniform(0.05, 0.1)
+            player.health -= self.strength * random.uniform(0.05, 0.1) * 0.5 * player.armour_multiplier
             print("The enemy hit you!")
         else:
             print("The enemy missed!")
