@@ -1,57 +1,51 @@
-```markdown
-# ByteBattles
+**# ByteBattles**
 
-ByteBattles is a terminal-based game where players embark on an adventurous journey, encountering wild creatures, getting loot and enhancing their skills through battles and crafting.
+**## Overview**
 
-## Features
+* Embark on text-based adventures in this terminal-based RPG!
+* Explore the world, battle enemies, gather loot, craft powerful weapons and armor, and become a legendary hero.
+* Currently in active development with new features and challenges on the horizon!
 
-- **Random Encounters:** Encounter various enemies, such as wolves, bandits, and trolls, as well as opportunities for loot.
-- **Shop:** Visit the shop to buy items using in-game currency.
-- **Inn:** Rest at the inn to restore health and vitality at the cost of gold.
-- **Forge:** Craft powerful weapons and armor using acquired resources.
+**## Installation and Setup**
 
-## Getting Started
+1. **Prerequisites:** Python 3.11.4
+2. **Download:** Clone this repository using `git clone https://github.com/ManasKoti/ByteBattles.git`
+3. **Run:** Navigate to the project directory and execute `python main.py`
 
-1. Clone the repository:
+**## Gameplay**
 
-   ```bash
-   git clone https://github.com/your-username/ByteBattles.git
-   cd ByteBattles
-   ```
+* **Explore:** Venture into the wild to encounter enemies, collect loot, and trigger events.
+* **Battle:** Engage in turn-based combat against a variety of foes, using strategic attacks.
+* **Shop:** Purchase items and gear to enhance your abilities.
+* **Forge:** Craft weapons and armor from collected materials to become more powerful.
+* **Inn:** Rest to replenish your health and prepare for further adventures.
+* **Save/Load:** Preserve your progress and continue your journey later.
 
-2. Run the game:
+**## Key Features:**
 
-   ```bash
-   python main.py
-   ```
+* Character progression with customizable stats and equipment
+* Diverse enemy encounters.
+* Resource management and crafting system
+* Persistent save system
+* Text-based interface for immersive gameplay
 
-3. Follow the on-screen prompts to explore, battle, and enhance your character.
+**## Code Structure:**
 
-## Gameplay Instructions
+* **main.py:** Main game loop and player interactions
+* **entities.py:** Character and enemy classes
+* **battle.py:** Battle mechanics
+* **shop.py:** Shop functionality
+* **forge.py:** Crafting system
 
-- **Explore:** Choose to explore and face random encounters, including battles and opportunities for loot.
-- **Shop:** Purchase and sell items at the shop to improve your character's inventory.
-- **Inn:** Rest at the inn to restore health, spending gold in the process.
-- **Forge:** Craft weapons and armor using materials obtained during your adventures.
+**## Contributing:**
 
-## Contributing
+* Feel free to submit issues or pull requests for bug fixes, feature suggestions, or code improvements.
+* Follow the PEP 8 style guide for code contributions.
 
-ByteBattles is currently under development. If you'd like to contribute, feel free to fork the repository and submit a pull request with your changes.
+**## Known Issues:**
 
-## License
+* Armour multiplier is not efficient.
 
-This project is licensed under the [MIT License](LICENSE).
+**## Contact:**
 
-## Acknowledgements
-
-- The game was inspired by classic text-based adventure games.
-- Special thanks to [OpenAI](https://www.openai.com/) for providing the tools to develop this project.
-
-## Contact
-
-For any questions or feedback, please contact the developer:
-
-- Developer: Manas Kotibhaskar
-- GitHub: [Your GitHub Profile](https://github.com/ManasKoti)
-- Email: manaskoti00@gmail.com
-
+* Manas Kotibhaskar - manaskoti00@gmail.com - https://github.com/ManasKoti/ByteBattles
