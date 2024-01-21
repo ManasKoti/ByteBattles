@@ -119,8 +119,26 @@ while game_on:
         
         #Summon Dragon
         elif turn_action == "5":
-            pass
-            
+            if player.inventory.count("Dragon Scale") >= 4: 
+                dragon = Dragon()
+                result = battle(player, dragon)
+                if result == "dead":
+                    player_alive = False
+                    replay = input("Would you like to play again? (y/n) ")
+                    if replay == "n":
+                        game_on = False
+                        break
+                else:
+                    print("You defeated the Dragon!\n")
+                    print("You have won the game!\n")
+                    player_alive = False
+                    replay = input("Would you like to play again? (y/n) ")
+                    if replay == "n":
+                        game_on = False
+                        break
+            else:
+                print("You need 4 Dragon Scales to challenge the boss.")
+                
         # Save game
         elif turn_action == "6":
             player.save_to_json()

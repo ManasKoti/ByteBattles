@@ -54,6 +54,20 @@ class Player:
         except FileNotFoundError:
             print("No saved data found.")
         
+class Dragon:
+        
+        def __init__(self):
+            self.name = "Dragon"
+            self.strength = 500
+            self.health = 500
+            
+        def attack(self, player):
+            if random.choice(HIT_CHANCE) == 1:
+                player.health -= self.strength * random.uniform(0.05, 0.1) * player.armour_multiplier
+                print("The enemy hit you!")
+            else:
+                print("The enemy missed!")      
+        
 class Wolf:
         
     def __init__(self):
