@@ -1,4 +1,5 @@
 import random
+import json
 
 HIT_CHANCE = [1,1,1,1,1,1,1,1,1,0]
 
@@ -20,6 +21,35 @@ class Player:
             print("You hit the enemy!")
         else:
             print("You missed!")
+            
+    def rest(self):
+        self.health = 100
+        
+    def save_to_json(self, file_path="player_data.json"):
+        data = {
+            "name": self.name,
+            "money": self.money,
+            "inventory": self.inventory,
+            "strength": self.strength,
+            "health": self.health,
+            "weapon_multiplier": self.weapon_multiplier
+        }
+
+        with open(file_path, "w") as file:
+            json.dump(data, file)
+
+    def load_from_json(self, file_path="player_data.json"):
+        try:
+            with open(file_path, "r") as file:
+                data = json.load(file)
+                self.name = data["name"]
+                self.money = data["money"]
+                self.inventory = data["inventory"]
+                self.strength = data["strength"]
+                self.health = data["health"]
+                self.weapon_multiplier = data["weapon_multiplier"]
+        except FileNotFoundError:
+            print("No saved data found.")
         
 class Wolf:
         

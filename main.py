@@ -18,7 +18,7 @@ while game_on:
     player_alive = True
     while player_alive:
     
-        turn_action = input("What would you like to do?\n1. Explore\n2. Visit Shop\n3. Visit Inn\nYour choice: ")
+        turn_action = input("What would you like to do?\n1. Explore\n2. Visit Shop\n3. Visit Inn\n4. Save Game\n5. Load Game\nYour choice: ")
         print()
                 
         #Explore
@@ -88,3 +88,24 @@ while game_on:
                     in_shop = False
                     
         #Inn
+        elif turn_action == "3":
+            print("Welcome to the inn!")
+            inn_action = input("What would you like to do?\n1. Rest\n2. Exit\nYour choice: ")
+            # print("\n")
+            if inn_action == "1":
+                player.rest()
+                print("Thank you for visiting, you are fully rested!")
+                print(f"Your health is now {player.health}\n")
+            elif inn_action == "2":
+                pass
+            
+        # Save game
+        if turn_action == "4":
+            player.save_to_json()
+            print("Game saved.\n")
+            continue
+        # Load game
+        elif turn_action == "5":
+            player.load_from_json()
+            print("Game loaded.\n")
+            continue
