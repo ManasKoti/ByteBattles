@@ -111,7 +111,7 @@ while game_on:
             if forge_action == "1":
                 forge.craft_weapon(player)
             elif forge_action == "2":
-                forge.craft_armour()
+                forge.craft_armour(player)
             elif forge_action == "3":
                 pass
         

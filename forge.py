@@ -37,22 +37,22 @@ class Forge:
             else:
                 print("You don't have enough Crystal Shards!\n")
                 
-    def craft_armour(self):
-        armour_choice = input("What armour would you like to craft?\n1. Leather Tunic\n2. Iron Armour\nYour choice: ")
+    def craft_armour(self, player):
+        armour_choice = input("What armour would you like to craft?\n1. Leather Armour\n2. Iron Armour\nYour choice: ")
         if armour_choice == "1":
             for item in self.player.inventory:
                 if item == "Leather Tunic":
                     self.shard_no += 1
             if self.shard_no >= 5:
-                print("You have crafted a Leather Tunic!\n")
-                self.player.inventory.append("Leather Tunic")
+                print("You have crafted Leather Armour!\n")
+                self.player.inventory.append("Leather Armour")
                 self.player.inventory.remove("Leather Tunic")
                 self.player.inventory.remove("Leather Tunic")
                 self.player.inventory.remove("Leather Tunic")
                 self.player.inventory.remove("Leather Tunic")
                 self.player.inventory.remove("Leather Tunic")
                 self.shard_no = 0
-                self.player.armour_multiplier = 2
+                player.armour_multiplier = 2
             else:
                 print("You don't have enough Leather Tunics!\n")
         elif armour_choice == "2":
@@ -68,6 +68,6 @@ class Forge:
                 self.player.inventory.remove("Iron Shard")
                 self.player.inventory.remove("Iron Shard")
                 self.shard_no = 0
-                self.player.armour_multiplier = 5
+                player.armour_multiplier = 5
             else:
                 print("You don't have enough Iron Shards!\n")
