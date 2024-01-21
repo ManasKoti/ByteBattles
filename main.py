@@ -5,8 +5,8 @@ from forge import Forge
 import random
 
 #List of random encounters
-#1.Nothing 2.Wolf 3.Bandit 4.Troll 5.Loot
-random_wild_encounter = [1,1,1,2,2,2,3,3,4,5]
+#1.Nothing 2.Wolf 3.Bandit 4.Troll 5.Loot 6.Dragon Scale
+random_wild_encounter = [1,1,1,2,2,2,3,3,4,5,6]
 shard_no = 0
 
 #Game loop
@@ -20,7 +20,7 @@ while game_on:
     player_alive = True
     while player_alive:
     
-        turn_action = input("What would you like to do?\n1. Explore\n2. Visit Shop\n3. Visit Inn\n4. Visit Forge\n5. Save Game\n6. Load Game\nYour choice: ")
+        turn_action = input("What would you like to do?\n1. Explore\n2. Visit Shop\n3. Visit Inn\n4. Visit Forge\n5. Summon Dragon\n6. Save Game\n7.Load Game\nYour choice: ")
         print()
                 
         #Explore
@@ -45,21 +45,23 @@ while game_on:
             #Loot found
             elif encounter == 5:
                 result = None
-                loot_found = random.choice([0,1,2])
+                loot_found = random.choice([0,1])
                 #Money found
                 if loot_found == 0:
                     money_found = random.choice([10,20,30,40,50])
-                    print(f"You found {money_found} gold!")
+                    print(f"You found {money_found} gold!\n")
                     player.money += money_found
                 #Item found
                 elif loot_found == 1:
                     item_found = random.choice(["Leather Tunic", "Iron Shard", "Crystal Shard"])
-                    print(f"You found a {item_found}!")
+                    print(f"You found a {item_found}!\n")
                     player.inventory.append(item_found)
-                #Boss item found
-                elif loot_found == 2:
-                    print("You foung a Dragon Scale!")
-                    player.inventory.append("Dragon Scale")
+            #Dragon Scale found
+            elif encounter == 6:
+                result = None
+                print("You found a Dragon Scale!\n")
+                player.inventory.append("Dragon Scale")
+            
             #Check if player is dead
             if result == "dead":
                 player_alive = False
@@ -115,14 +117,18 @@ while game_on:
             elif forge_action == "3":
                 pass
         
-        # Save game
+        #Summon Dragon
         elif turn_action == "5":
+            pass
+            
+        # Save game
+        elif turn_action == "6":
             player.save_to_json()
             print("Game saved.\n")
             continue
        
         # Load game
-        elif turn_action == "6":
+        elif turn_action == "7":
             player.load_from_json()
             print("Game loaded.\n")
             continue
