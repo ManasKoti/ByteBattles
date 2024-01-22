@@ -15,6 +15,8 @@ class Player:
         self.health = 100
         self.weapon_multiplier = 1
         self.armour_multiplier = 1
+        self.level = 1
+        self.experience = 0
         
     def attack(self, enemy):
         if random.choice(HIT_CHANCE) == 1:
@@ -25,6 +27,17 @@ class Player:
             
     def rest(self):
         self.health = 100
+        
+    def gain_experience(self, amount):
+        self.experience += amount
+        if self.experience >= self.level * 100:
+            self.experience -= self.level * 100
+            self.level_up()    
+            
+    def level_up(self):
+        self.level += 1 
+        self.strength += 10  
+        print(f"{self.name} leveled up! Level: {self.level}, Strength: {self.strength}")
         
     def save_to_json(self, file_path="player_data.json"):
         data = {
@@ -59,17 +72,20 @@ class Player:
         
 class Dragon:
         
-        def __init__(self):
-            self.name = "Dragon"
-            self.strength = 500
-            self.health = 500
+    def __init__(self):
+        self.name = "Dragon"
+        self.strength = 500
+        self.health = 500
+        self.level = 10
             
-        def attack(self, player):
-            if random.choice(HIT_CHANCE) == 1:
-                player.health -= int(self.strength * random.uniform(0.05, 0.1) * player.armour_multiplier)
-                print("The enemy hit you!")
-            else:
-                print("The enemy missed!")      
+    def attack(self, player):
+        if random.choice(HIT_CHANCE) == 1:
+            damage = int(self.strength * random.uniform(0.05, 0.1))
+            damage = int(damage * player.armour_multiplier) 
+            player.health -= damage
+            print("The enemy hit you!")
+        else:
+            print("The enemy missed!")      
         
 class Wolf:
         
@@ -77,10 +93,13 @@ class Wolf:
         self.name = "Wolf"
         self.strength = 50
         self.health = 50
+        self.level = 1
 
     def attack(self, player):
         if random.choice(HIT_CHANCE) == 1:
-            player.health -= int(self.strength * random.uniform(0.05, 0.1) * player.armour_multiplier)
+            damage = int(self.strength * random.uniform(0.05, 0.1))
+            damage = int(damage * player.armour_multiplier)
+            player.health -= damage
             print("The enemy hit you!")
         else:
             print("The enemy missed!")
@@ -91,10 +110,13 @@ class Bandit:
         self.name = "Bandit"
         self.strength = 100
         self.health = 100
+        self.level = 3
         
     def attack(self, player):
         if random.choice(HIT_CHANCE) == 1:
-            player.health -= int(self.strength * random.uniform(0.05, 0.1) * player.armour_multiplier)
+            damage = int(self.strength * random.uniform(0.05, 0.1))
+            damage = int(damage * player.armour_multiplier) 
+            player.health -= damage 
             print("The enemy hit you!")
         else:
             print("The enemy missed!")
@@ -105,10 +127,13 @@ class Troll:
         self.name = "Troll"
         self.strength = 200
         self.health = 200
+        self.level = 5
         
     def attack(self, player):
         if random.choice(HIT_CHANCE) == 1:
-            player.health -= int(self.strength * random.uniform(0.05, 0.1) * player.armour_multiplier)
+            damage = int(self.strength * random.uniform(0.05, 0.1))
+            damage = int(damage * player.armour_multiplier)  
+            player.health -= damage
             print("The enemy hit you!")
         else:
             print("The enemy missed!")
