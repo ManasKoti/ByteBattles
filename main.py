@@ -20,7 +20,7 @@ while game_on:
     player_alive = True
     while player_alive:
     
-        turn_action = input("What would you like to do?\n1. Explore\n2. Visit Shop\n3. Visit Inn\n4. Visit Forge\n5. Summon Dragon\n6. Save Game\n7.Load Game\nYour choice: ")
+        turn_action = input("What would you like to do?\n1. Explore\n2. Visit Shop\n3. Visit Inn\n4. Visit Forge\n5. Summon Dragon\n6. Save Game\n7. Load Game\nYour choice: ")
         print()
                 
         #Explore
