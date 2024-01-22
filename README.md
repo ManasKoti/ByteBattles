@@ -3,8 +3,8 @@
 ## Overview
 
 * Embark on text-based adventures in this terminal-based RPG!
-* Explore the world, battle enemies, gather loot, craft powerful weapons and armor, and become a legendary hero.
-* Currently in active development with new features and challenges on the horizon!
+* Explore the world, battle enemies, gather loot, craft powerful weapons and armor, defeat bosses, level up and become a legendary hero.
+* Currently in pre-release stage with new features and challenges on the horizon!
 
 ## Installation and Setup
 
@@ -19,12 +19,13 @@
 * **Shop:** Purchase items and gear to enhance your abilities.
 * **Forge:** Craft weapons and armor from collected materials to become more powerful.
 * **Inn:** Rest to replenish your health and prepare for further adventures.
+* **Summon Dragon:** Aquire the necessary materials to summon the Dragon Boss and defeat it.
 * **Save/Load:** Preserve your progress and continue your journey later.
 
 ## Key Features
 
 * Character progression with customizable stats and equipment
-* Diverse enemy encounters with unique abilities
+* Diverse enemy encounters and bosses with unique abilities
 * Resource management and crafting system
 * Persistent save system
 * Text-based interface for immersive gameplay
@@ -37,14 +38,21 @@
 * **shop.py:** Shop functionality
 * **forge.py:** Crafting system
 
+## Future Plans
+
+* Adding quest system.
+* Adding more items and equipment slots.
+* Adding more enemies and bosses.
+* Adding NPCs
+* Improving UI by adding ASCII art.
+
 ## Contributing
 
 * Feel free to submit issues or pull requests for bug fixes, feature suggestions, or code improvements.
-* Follow the PEP 8 style guide for code contributions.
 
 ## Known Issues
 
-* Armour multiplier is not efficient.
+* Currently none (Please contact or send request if you find any).
 
 ## Contact
 
