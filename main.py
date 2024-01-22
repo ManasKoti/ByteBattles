@@ -78,11 +78,12 @@ while game_on:
             in_shop = True
             while in_shop:
                 shop = Shop([("Leather Tunic", 20), ("Iron Shard", 50), ("Crystal Shard", 200)])
-                shop_action = input("What would you like to do?\n1. Buy item\n2. See inventory\n3. Exit\nYour choice: ")
+                shop_action = input("What would you like to do?\n1. Buy item\n2. See inventory\n3. Check Stats\n4. Exit\nYour choice: ")
                 print("\n")
                 if shop_action == "1":
                     shop.display_items(player)
                     item_number = int(input("Which item would you like to buy? "))
+                    print("\n")
                     shop.buy_item(item_number, player)
                 elif shop_action == "2":
                     print("Your inventory:")
@@ -90,6 +91,17 @@ while game_on:
                         print(f"{i}. {item}")
                     print("\n")
                 elif shop_action == "3":
+                    print("Your stats:")
+                    print(f"Health: {player.health}")
+                    print(f"Level: {player.level}")
+                    print(f"Experience: {player.experience}")
+                    print(f"Health: {player.health}")
+                    print(f"Strength: {player.strength}")
+                    print(f"Weapon Multiplier: {player.weapon_multiplier}")
+                    print(f"Armour Multiplier: {player.armour_multiplier}")
+                    print(f"Highest Attack: {player.strength * player.weapon_multiplier * 0.1}")
+                    print(f"Money: {player.money}\n")
+                elif shop_action == "4":
                     in_shop = False
                     
         #Inn
