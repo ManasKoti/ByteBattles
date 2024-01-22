@@ -51,8 +51,11 @@ class Player:
                 self.health = data["health"]
                 self.weapon_multiplier = data["weapon_multiplier"]
                 self.armour_multiplier = data["armour_multiplier"]
+            return "successfull"
         except FileNotFoundError:
-            print("No saved data found.")
+            print("No saved data found.\n")
+            return "failed"
+            
         
 class Dragon:
         

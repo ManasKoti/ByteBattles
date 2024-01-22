@@ -14,6 +14,7 @@ game_on = True
 while game_on:
      
     player_name = input("Welcome to Byte Battles!!\nWhat is your name adventurer your name?\n")
+    print()
     print("Welcome " + player_name + "!\n")
     player = Player(player_name)
     
@@ -29,7 +30,7 @@ while game_on:
             #No encounter
             if encounter == 1:
                 result = None
-                print("You didn't encounter anything.")
+                print("You didn't encounter anything.\n")
             #Wolf encounter
             elif encounter == 2:
                 wolf = Wolf()
@@ -72,7 +73,7 @@ while game_on:
         
         #Shop
         elif turn_action == "2":
-            print("Welcome to the shop!")
+            print("Welcome to the shop!\n")
             
             in_shop = True
             while in_shop:
@@ -93,13 +94,13 @@ while game_on:
                     
         #Inn
         elif turn_action == "3":
-            print("Welcome to the inn!")
+            print("Welcome to the inn!\n")
             inn_action = input("What would you like to do?\n1. Rest\n2. Exit\nYour choice: ")
             # print("\n")
             if inn_action == "1":
                 player.rest()
                 print("Thank you for visiting, you are fully rested!")
-                print(f"Your health is now {player.health}\n")
+                print(f"Your health is now {player.health}!\n")
                 player.money -= 10
             elif inn_action == "2":
                 pass
@@ -107,7 +108,7 @@ while game_on:
         #Forge
         elif turn_action == "4":
             forge = Forge(player)
-            print("Welcome to the forge!")
+            print("Welcome to the forge!\n")
             forge_action = input("What would you like to do?\n1. Craft weapon\n2. Craft Armour\n3. Exit\nYour choice: ")
             print("\n")
             if forge_action == "1":
@@ -147,8 +148,10 @@ while game_on:
        
         # Load game
         elif turn_action == "7":
-            player.load_from_json()
-            print("Game loaded.\n")
+            load_result = player.load_from_json()
+            if load_result == "successfull":
+                print("Game loaded.\n")
+                continue
             continue
         
         

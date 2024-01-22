@@ -7,7 +7,7 @@ def battle(player, enemy):
     #Battle loop
     while player.health > 0 and enemy.health > 0:
         print("Your health: " + str(int(player.health)))
-        print("Enemy health: " + str(int(enemy.health)))
+        print("Enemy health: " + str(int(enemy.health)) + "\n")
         turn_action = input("What would you like to do?\n1. Attack\n2. Run\nYour choice: ")
         print()
         #Attack
