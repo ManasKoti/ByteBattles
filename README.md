@@ -43,7 +43,7 @@
 * Adding quest system.
 * Adding more items and equipment slots.
 * Adding more enemies and bosses.
-* Adding NPCs
+* Adding NPCs.
 * Improving UI by adding ASCII art.
 
 ## Contributing
