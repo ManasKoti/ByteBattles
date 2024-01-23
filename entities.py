@@ -37,7 +37,7 @@ class Player:
     def level_up(self):
         self.level += 1 
         self.strength += 10  
-        print(f"{self.name} leveled up! Level: {self.level}, Strength: {self.strength}")
+        print(f"{self.name} leveled up! Level: {self.level}, Strength: {self.strength}\n")
         
     def save_to_json(self, file_path="player_data.json"):
         data = {
@@ -47,7 +47,9 @@ class Player:
             "strength": self.strength,
             "health": self.health,
             "weapon_multiplier": self.weapon_multiplier,
-            "armour_multiplier": self.armour_multiplier
+            "armour_multiplier": self.armour_multiplier,
+            "level": self.level,
+            "experience": self.experience
         }
 
         with open(file_path, "w") as file:
@@ -64,6 +66,8 @@ class Player:
                 self.health = data["health"]
                 self.weapon_multiplier = data["weapon_multiplier"]
                 self.armour_multiplier = data["armour_multiplier"]
+                self.level = data["level"]
+                self.experience = data["experience"]
             return "successfull"
         except FileNotFoundError:
             print("No saved data found.\n")
@@ -77,6 +81,7 @@ class Dragon:
         self.strength = 500
         self.health = 500
         self.level = 10
+        self.money = 1000
             
     def attack(self, player):
         if random.choice(HIT_CHANCE) == 1:
@@ -94,6 +99,7 @@ class Wolf:
         self.strength = 50
         self.health = 50
         self.level = 1
+        self.money = 5
 
     def attack(self, player):
         if random.choice(HIT_CHANCE) == 1:
@@ -111,6 +117,7 @@ class Bandit:
         self.strength = 100
         self.health = 100
         self.level = 3
+        self.money = 20
         
     def attack(self, player):
         if random.choice(HIT_CHANCE) == 1:
@@ -128,6 +135,7 @@ class Troll:
         self.strength = 200
         self.health = 200
         self.level = 5
+        self.money = 50
         
     def attack(self, player):
         if random.choice(HIT_CHANCE) == 1:

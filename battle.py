@@ -30,6 +30,9 @@ def battle(player, enemy):
         return "dead"
     elif enemy.health <= 0:
         print(f"You defeated the {enemy.name}!\n")
+        print(f"You gained {enemy.level * 10} experience!")
+        print(f"You gained {enemy.money} gold!\n")
+        player.money += enemy.money
         player.gain_experience(enemy.level * 10)
             
     
