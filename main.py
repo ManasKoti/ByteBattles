@@ -2,6 +2,7 @@ from entities import *
 from battle import battle
 from shop import Shop
 from forge import Forge
+from assets import *
 import random
 import os
 
@@ -15,6 +16,7 @@ def main():
     game_on = True
     while game_on:
         
+        print(logo)
         player_name = input("Welcome to Byte Battles!!\nWhat is your name adventurer?\n")
         print()
         print("Welcome " + player_name + "!\n")
@@ -82,6 +84,7 @@ def main():
             
             #Shop
             elif turn_action == "2":
+                print(shop_logo)
                 print("Welcome to the shop!\n")
                 
                 in_shop = True
@@ -115,9 +118,10 @@ def main():
                         
             #Inn
             elif turn_action == "3":
+                print(inn_logo)
                 print("Welcome to the inn!\n")
                 inn_action = input("What would you like to do?\n1. Rest(10 gold)\n2. Exit\nYour choice: ")
-                # print("\n")
+                print("\n")
                 if inn_action == "1":
                     player.rest()
                     print("Thank you for visiting, you are fully rested!")
@@ -129,6 +133,7 @@ def main():
             #Forge
             elif turn_action == "4":
                 forge = Forge(player)
+                print(forge_logo)
                 print("Welcome to the forge!\n")
                 forge_action = input("What would you like to do?\n1. Craft weapon\n2. Craft Armour\n3. Exit\nYour choice: ")
                 print("\n")
@@ -142,6 +147,7 @@ def main():
             #Summon Dragon
             elif turn_action == "5":
                 if player.inventory.count("Dragon Scale") >= 4: 
+                    print(dragon_logo)
                     dragon = Dragon()
                     result = battle(player, dragon)
                     if result == "dead":
