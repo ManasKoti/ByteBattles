@@ -135,14 +135,18 @@ def main():
                 forge = Forge(player)
                 print(forge_logo)
                 print("Welcome to the forge!\n")
-                forge_action = input("What would you like to do?\n1. Craft weapon\n2. Craft Armour\n3. Exit\nYour choice: ")
-                print("\n")
-                if forge_action == "1":
-                    forge.craft_weapon(player)
-                elif forge_action == "2":
-                    forge.craft_armour(player)
-                elif forge_action == "3":
-                    pass
+                in_forge = True
+                while in_forge:
+                    forge_action = input("What would you like to do?\n1. Craft Weapon\n2. Craft Armour\n3. Equip Item\n4. Exit\nYour choice: ")
+                    print("\n")
+                    if forge_action == "1":
+                        forge.craft_weapon(player)
+                    elif forge_action == "2":
+                        forge.craft_armour(player)
+                    elif forge_action == "3":
+                        forge.equip_item(player)
+                    elif forge_action == "4":
+                        in_forge = False
             
             #Summon Dragon
             elif turn_action == "5":
